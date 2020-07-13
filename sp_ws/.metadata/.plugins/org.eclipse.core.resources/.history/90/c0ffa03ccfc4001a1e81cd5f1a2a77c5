@@ -1,0 +1,9 @@
+package com.will.herb.category.model;
+
+import java.util.List;
+
+import com.will.herb.product.model.ProductVO;
+
+public interface CategoryDAO {
+	public List<ProductVO> selectCategory(int categoryno);
+}

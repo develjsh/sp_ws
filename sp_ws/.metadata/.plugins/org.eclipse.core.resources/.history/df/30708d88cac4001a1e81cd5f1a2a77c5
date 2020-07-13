@@ -1,0 +1,8 @@
+package com.will.herb.category.model;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class CategoryDAOMybatis implements CategoryDAO {
+	
+}

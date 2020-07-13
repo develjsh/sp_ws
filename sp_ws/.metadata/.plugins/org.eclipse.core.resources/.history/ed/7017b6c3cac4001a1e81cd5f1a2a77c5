@@ -1,0 +1,8 @@
+package com.will.herb.category.model;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CategoryServiceImpl implements CategoryService {
+
+}

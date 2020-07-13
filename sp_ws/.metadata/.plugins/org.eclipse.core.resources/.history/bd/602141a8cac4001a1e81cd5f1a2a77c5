@@ -1,0 +1,5 @@
+package com.will.herb.category.model;
+
+public interface CategoryService {
+
+}

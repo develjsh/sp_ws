@@ -8,6 +8,15 @@
 		where eventName=#{eventName}
 	</select>
 	
+	<select id="selectByCategory" parameterType="int" resultType="productVo">
+		select * from Products
+		where categoryNo=#{categoryNo}
+	</select>
+	
+	<select id="selectPdByProductNo" parameterType="int" resultType="productVo">
+		select * from Products
+		where productNo=#{productNo}
+	</select>
 	
 </mapper>
 

@@ -5,7 +5,7 @@
 
 <style type="text/css">
 	.divEvent{
-		width: 700px;
+		width: 780px;
 	}
 	
 	.divPd{
@@ -13,7 +13,8 @@
 		float:left;
 		border: 1px solid #eeeeee;
 		margin: 0 10px 10px 0;
-		padding: 10px;
+		padding: 20px;
+		text-align: center;
 	}
 	
 	.line{
@@ -33,9 +34,12 @@
 		<c:forEach var="vo" items="${list }">
 			<!-- 반복 시작 -->
 			<div class="divPd">
+			<a href="<c:url value='/shop/product/productDetail.do?productNo=${vo.productNo }' /> ">
 				<img src
 	="${pageContext.request.contextPath }/pd_images/${vo.imageURL}" 
-					alt="${vo.productName }"><br> 
+					alt="${vo.productName }">
+			</a>
+					<br> 
 				${vo.productName }<br>
 				<fmt:formatNumber value="${vo.sellPrice }"
 					pattern="#,###"/>원	

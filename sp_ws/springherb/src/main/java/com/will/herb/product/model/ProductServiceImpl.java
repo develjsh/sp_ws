@@ -14,5 +14,12 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> selectEvent(String eventName) {
 		return productDao.selectEvent(eventName);
 	}
+	public List<ProductVO> selectByCategory(int categoryNo){
+		return productDao.selectByCategory(categoryNo);
+	}
+	@Override
+	public ProductVO selectPdByNo(int productNo) {
+		return productDao.selectPdByNo(productNo);
+	}
 	
 }

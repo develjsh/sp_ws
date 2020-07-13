@@ -5,6 +5,5 @@
 <aop-reference advice-type="AROUND" bean="1:BeansModel|2:springherb|3:src/main/resources/config/spring/context-common.xml|7:beans:10|8:reBoardServiceImpl:10" bean-file="/springherb/src/main/resources/config/spring/context-common.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/springherb/src/main/resources/config/spring/context-common.xml" source="=springherb/C:\/Users\/STU-27\/.m2\/repository\/org\/springframework\/spring-tx\/4.3.4.RELEASE\/spring-tx-4.3.4.RELEASE.jar=/maven.pomderived=/true=/=/org.eclipse.jst.component.dependency=/\/WEB-INF\/lib=/=/maven.pomderived=/true=/=/org.eclipse.jst.component.archivename=/spring-tx-4.3.4.RELEASE.jar=/=/maven.groupId=/org.springframework=/=/maven.artifactId=/spring-tx=/=/maven.version=/4.3.4.RELEASE=/=/maven.scope=/compile=/&lt;org.springframework.transaction.interceptor(TransactionInterceptor.class[TransactionInterceptor~invoke~Lorg.aopalliance.intercept.MethodInvocation;" source-start-line="-1" target="=springherb/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.will.herb.reboard.model{ReBoardServiceImpl.java[ReBoardServiceImpl~reply~QReBoardVO;" target-start-line="64"/>
 </aspect-definition>
 </aop-project>
-<aop-project name="testing"/>
 <aop-project name="st_test"/>
 </aop-reference-model>

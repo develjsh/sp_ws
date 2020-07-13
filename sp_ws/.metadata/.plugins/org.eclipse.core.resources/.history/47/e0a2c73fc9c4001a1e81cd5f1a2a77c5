@@ -1,0 +1,10 @@
+package com.will.herb.category.model;
+
+public class CategoryVO {
+	private int categoryNo;
+	private String categoryName;
+	private int categoryOrder;
+	
+	
+	
+}
