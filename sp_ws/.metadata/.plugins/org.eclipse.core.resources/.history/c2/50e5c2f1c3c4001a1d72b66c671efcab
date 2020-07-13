@@ -14,7 +14,7 @@
 	<%-- <%@ include file="shop/product/inc/bottom.jsp" %> --%> <!-- 소스를 집어넣는다 -->
 	
 </article>
-
+hello
 
 
 <%@ include file="inc/bottom.jsp" %>    
