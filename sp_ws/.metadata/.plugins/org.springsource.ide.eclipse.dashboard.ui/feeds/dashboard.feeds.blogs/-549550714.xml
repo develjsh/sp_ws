@@ -5,7 +5,7 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2020-07-10T14:00:41Z</updated>
+  <updated>2020-07-10T14:00:00Z</updated>
   <entry>
     <title>First milestone of Reactor 2020.0 (Codename Europium)</title>
     <link rel="alternate" href="https://spring.io/blog/2020/07/10/first-milestone-of-reactor-2020-0-codename-europium" />
@@ -14,7 +14,7 @@
       <name>Simon Basl?</name>
     </author>
     <id>tag:spring.io,2020-07-07:4125</id>
-    <updated>2020-07-10T14:00:41Z</updated>
+    <updated>2020-07-10T14:00:00Z</updated>
     <content type="html">&lt;p&gt;Earlier this month, we released a first milestone of Reactor 2020.0.&lt;br/&gt;This cycle, codename &lt;code&gt;Europium&lt;/code&gt;, follows the Dysprosium one (which included reactor-core 3.3.x and reactor-netty 0.9.x).&lt;/p&gt;
 &lt;p&gt;It includes reactor-core &lt;code&gt;3.4.0&lt;/code&gt; and reactor-netty &lt;code&gt;1.0.0&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;In this blog post, we&amp;rsquo;ll cover a few highlights of the reactor-core milestone, and briefly mention what&amp;rsquo;s in store for M2.&lt;/p&gt;
@@ -64,7 +64,7 @@ sink.complete();
   &lt;li&gt;&lt;code&gt;WorkQueueProcessor&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The &lt;code&gt;Schedulers.boundedElastic()&lt;/code&gt; has been out since 3.3.0 and we think we can now &lt;strong&gt;deprecate&lt;/strong&gt; its ancestor, &lt;code&gt;elastic()&lt;/code&gt;, rather than just recommend using boundedElastic over elastic.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;boundedElastic&lt;/code&gt; &lt;code&gt;Scheduler&lt;/code&gt; will be removed in 3.5.0.&lt;/p&gt;&lt;h1&gt;&lt;a href="#reactor-netty-is-hitting-1-0" class="anchor" name="reactor-netty-is-hitting-1-0"&gt;&lt;/a&gt;Reactor-Netty is hitting 1.0&lt;/h1&gt;
+&lt;p&gt;Further down the road, in 3.5.0, the &lt;code&gt;elastic&lt;/code&gt; &lt;code&gt;Scheduler&lt;/code&gt; will be removed.&lt;/p&gt;&lt;h1&gt;&lt;a href="#reactor-netty-is-hitting-1-0" class="anchor" name="reactor-netty-is-hitting-1-0"&gt;&lt;/a&gt;Reactor-Netty is hitting 1.0&lt;/h1&gt;
 &lt;p&gt;There is much much to cover here, which we&amp;rsquo;ll do in a separate blog post.&lt;/p&gt;&lt;h1&gt;&lt;a href="#conclusion" class="anchor" name="conclusion"&gt;&lt;/a&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;Please try out the &lt;a href="https://repo.spring.io/milestone/io/projectreactor/reactor-core/3.4.0-M1/"&gt;M1&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re already making further changes to sinks and processors in M2, along with other themes like &lt;code&gt;Context&lt;/code&gt; operators, avoiding thrown exceptions in &lt;code&gt;subscribe&lt;/code&gt; and improving the story around metrics.&lt;/p&gt;
