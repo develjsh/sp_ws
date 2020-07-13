@@ -35,6 +35,8 @@ D:\lecture\workspace.list\sp_ws\.metadata\.plugins\org.eclipse.jst.jsp.core\jsps
 \springhub\src\main\java
 D:\lecture\workspace.list\sp_ws\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2582613035.index
 \springherb\src\main\java
+D:\sp_ws\sp_ws\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\254493743.index
+\springherb\src\main\java
 D:\lecture\workspace.list\sp_ws\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\434028597.index
 \spring_mybatis\src
 D:\lecture\workspace.list\sp_ws\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2906327334.index
