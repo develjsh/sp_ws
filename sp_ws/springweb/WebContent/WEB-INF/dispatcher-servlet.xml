@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!--Controller-->
+	<!-- 
+	<bean id="helloController" 
+		class="com.springweb.test.controller.HelloController"></bean>
+	 -->
+	
+	<bean id="helloController2" 
+		class="com.springweb.test.controller.HelloController2"></bean>
+	
+	<!-- pd -->
+	<bean id="pdWriteController" 
+		class="com.springweb.pd.controller.PdWriteController"
+		p:pdService-ref="pdService"></bean>
+	
+	<bean id="pdListController" 
+		class="com.springweb.pd.controller.PdListController"
+		p:pdService-ref="pdService"></bean>
+	
+	<bean id="pdDetailController" 
+		class="com.springweb.pd.controller.PdDetailController"
+		p:pdService-ref="pdService"></bean>
+	
+	<bean id="pdEditController" 
+		class="com.springweb.pd.controller.PdEditController"
+		p:pdService-ref="pdService"></bean>
+	
+	<bean id="pdDeleteController" 
+		class="com.springweb.pd.controller.PdDeleteController"
+		p:pdService-ref="pdService"></bean>
+	
+	
+	
+   <!--service -->
+   <bean id="pdService" 
+   		class="com.springweb.pd.model.PdServiceImpl"
+   		p:pdDao-ref="pdDAO"></bean>
+    
+   <!-- dao -->
+   <bean id="pdDAO" class="com.springweb.pd.model.PdDAOImpl"
+   		p:pool-ref="poolMgr"></bean>
+   
+   <!-- 기타 -->
+  	<bean id="poolMgr" class="com.springweb.db.ConnectionPoolMgr2">
+		<constructor-arg value="jdbc/oracledb2">			
+		</constructor-arg>
+	</bean>
+	
+	<!-- HandlerMapping -->
+     <!-- 
+     <bean id="handlerMapping" 
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/hello.do">helloController</prop>
+			</props>
+		</property>
+     </bean> -->
+
+	<!-- ViewResolver -->   
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="1" />
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+	     <property name="order" value="0" />
+	</bean>
+	
+	<!-- MultipartResolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+	
+</beans>

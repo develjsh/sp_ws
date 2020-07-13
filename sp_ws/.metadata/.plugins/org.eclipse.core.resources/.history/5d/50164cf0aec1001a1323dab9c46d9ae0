@@ -1,0 +1,61 @@
+package com.will.herb.zipcode.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.will.herb.common.PaginationInfo;
+import com.will.herb.common.SearchVO;
+import com.will.herb.common.Utility;
+import com.will.herb.zipcode.model.ZipcodeService;
+import com.will.herb.zipcode.model.ZipcodeVO;
+
+@Controller
+public class ZipcodeController {
+	private static final Logger logger = LoggerFactory.getLogger(ZipcodeController.class);
+	
+	@Autowired
+	private ZipcodeService zipcodeService;
+	
+	@RequestMapping("/zipcode/zipcode.do")
+	public String zipcode_post(@RequestParam(required = false) String dong, Model model, SearchVO searchVo) {
+		logger.info("우편 번호 확인  파라미터, dong={}", dong);
+		
+		List<ZipcodeVO> list =null;
+
+		//[1] PaginationInfo 생성
+		PaginationInfo pagingInfo = new PaginationInfo();
+		pagingInfo.setBlockSize(Utility.BLOCKSIZE);
+		pagingInfo.setRecordCountPerPage(Utility.RECORD_COUNT);
+		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+		
+		//[2] SearchVo 에 값 셋팅
+		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		searchVo.setRecordCountPerPage(Utility.RECORD_COUNT);
+		if(dong!=null && !dong.isEmpty()) {
+			list  = zipcodeService.selectZipcode(dong);
+		}
+		logger.info("우편 번호 검색 결과, list={},list");
+		
+		int totalRecord = list.size();
+		pagingInfo.setTotalRecord(totalRecord);
+		
+		
+		logger.info("우편 번호 검색 레코드 수, totalRecord={}", totalRecord);
+		
+		model.addAttribute("pagingInfo", pagingInfo);
+		model.addAttribute("list", list);
+		model.addAttribute("totalRecord", totalRecord);
+		
+		return "zipcode/zipcode";
+		
+	}
+	
+}

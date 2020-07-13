@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<style type="text/css">
+	.divEvent{
+		width: 550px;
+	}
+	
+	.divPd{
+		width: 120px;
+		border: 1px solid #eeeeee;
+		margin: 0 5px 5px 0;
+		padding: 10px;
+	
+	}
+	
+	.line{
+		width: 100%;
+		border: 1px solid #eeeeee;
+		padding: 10px;
+	}
+</style>
+
+
+<div class="divEvent">
+	<!-- 반복 시작 -->
+	<div class="divPd">
+		<c:if test="${empty pdlist }">
+			<div class="line">
+				해당 이벤트 상품이 없습니다
+			</div>
+		</c:if>
+		<c:if test="${!empty pdlist }">
+			<c:forEach var="vo" items="${pdlist}">
+			
+			</c:forEach>
+		
+		
+		</c:if>
+	</div>
+	<!-- 반복 끝 -->
+</div>

@@ -1,0 +1,7 @@
+package com.will.herb.member.model;
+
+public interface MemberDAO {
+	public int insertMember(MemberVO vo);
+	public int selectDup(String userid);
+	String selectPwd(String userid);
+}

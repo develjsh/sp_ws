@@ -1,0 +1,5 @@
+package com.will.herb.product.model;
+
+public interface ProductService {
+
+}

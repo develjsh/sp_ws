@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean name="articleService2" 
+		class="com.spring.di.ArticeServiceImpl2">
+		<constructor-arg>
+			<ref bean="articleDAO"/>
+		</constructor-arg>			
+	</bean>
+	
+	<bean name="articleService3" 
+		class="com.spring.di.ArticeServiceImpl3"
+		p:articleDao-ref="articleDAO">
+	</bean>
+	
+<!-- 	
+	<bean name="articleService3" 
+		class="com.spring.di.ArticeServiceImpl3">
+		<property name="articleDao" ref="articleDAO"></property>
+	</bean> -->
+	
+	<bean name="articleDAO" 
+		class="com.spring.di.MySqlArticleDAO"></bean>
+<!-- 	
+	<bean name="articleDAO" 
+		class="com.spring.di.OracleArticleDAO"></bean> -->
+
+	<bean name="loggingAsp" class="com.spring.di.LoggingAspect"></bean>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* *..*Service.*(..))" 
+			id="servicePointCut"/>
+		<!-- loggingAsp의 logging()메서드를 
+			이름이 Service로 끝나는 인터페이스를 구현한 모든 클래스의 모든 메서드 앞, 뒤로 
+			실행하라 -->
+		<aop:aspect id="loggingAspect" 
+			ref="loggingAsp">
+			<aop:around method="logging" pointcut-ref="servicePointCut"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean name="loggingDAOAsp" class="com.spring.di.LoggingDAOAspect"></bean>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* *..*DAO.*(..))" 
+			id="daoPointCut"/>		
+		<aop:aspect id="loggingDAOAspect" ref="loggingDAOAsp">
+			<aop:before method="before" 
+				pointcut-ref="daoPointCut"/>
+			<aop:after-returning method="afterReturning"
+			 	pointcut-ref="daoPointCut"/>
+			<aop:after-throwing method="afterError"
+			 	pointcut-ref="daoPointCut"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
+</beans>
+
+
+
+
+

@@ -1,0 +1,75 @@
+package com.will.herb.member.model;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MemberDAOMybatis implements MemberDAO {
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	private String namespace="config.mybatis.mapper.oracle.member.";
+	
+	
+	public int insertMember(MemberVO vo) {
+		return sqlSession.insert(namespace + "memberInsert", vo);
+	}
+	
+	public int selectDup(String userid) {
+		return sqlSession.selectOne(namespace + "selectDup", userid);
+	}
+
+	@Override
+	public String selectPwd(String userid) {
+		return sqlSession.selectOne(namespace + "selectPwd", userid);
+	}
+	
+	
+	
+	public MemberVO selectMember(String userid){
+		return sqlSession.selectOne(namespace + "selectMember", userid);
+	}
+	
+
+	public int updateMember(MemberVO vo) {
+		return sqlSession.selectOne(namespace + "updateMember", vo);
+	}
+	
+	
+	/*
+	public int deleteMember(String userid) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		
+		try {
+			con=pool.getConnection();
+			
+			String sql="update member"
+					+ " set outdate=sysdate" 
+					+ " where userid=?";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, userid);
+			
+			int cnt=ps.executeUpdate();
+			System.out.println("회원탈퇴 결과, cnt=" + cnt
+					+", 매개변수 userid="+userid);
+			
+			return cnt;
+		}finally {
+			pool.dbClose(con, ps);
+		}
+	}
+	*/
+	
+}
+
+
+
+
+
+
+
+
+
+

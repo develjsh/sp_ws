@@ -1,0 +1,36 @@
+package com.will.herb.member.model;
+
+import java.sql.SQLException;
+
+//db작업 이외의 비즈니스 로직을 처리하는 클래스
+//jsp => DAO
+//jsp => Service => DAO
+
+public class MemberServiceImpl {
+	
+	public int insertMember(MemberVO vo) throws SQLException {
+		int cnt=memberDao.insertMember(vo);
+		return cnt;
+	}
+	/*
+	public int duplicateId(String userid) throws SQLException {
+		return memberDao.duplicateId(userid);
+	}
+	
+	public int loginCheck(String userid, String pwd) throws SQLException {
+		return memberDao.loginCheck(userid, pwd);
+	}
+
+	public MemberVO selectMember(String userid) throws SQLException {
+		return memberDao.selectMember(userid);
+	}
+		
+	public int updateMember(MemberVO vo) throws SQLException {
+		return memberDao.updateMember(vo);
+	}
+		
+	public int deleteMember(String userid) throws SQLException {
+		return memberDao.deleteMember(userid);
+	}
+	*/
+}

@@ -1,0 +1,5 @@
+package com.will.herb.zipcode.model;
+
+public interface ZipcodeDAO {
+
+}

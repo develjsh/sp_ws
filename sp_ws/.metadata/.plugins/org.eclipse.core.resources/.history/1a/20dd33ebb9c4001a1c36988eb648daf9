@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<style type="text/css">
+.divPd {
+	float: left;
+	padding: 20px;
+	margin: 0 10px 10px 0;
+	width: 140px;
+	text-align: center;
+	border: 1px solid silver;
+}
+
+.line {
+	border: 1px solid silver;
+	padding: 20px;
+}
+</style>
+	<div style="width: 780px; text-align: center;">
+		<c:if test="${empty pdList }">
+			<div class="line">해당 카테고리에 상품이 없습니다.</div>
+		</c:if>
+		<c:if test="${!empty pdList }">
+			<!-- 반복문 시작 -->
+			<c:forEach var="pdVo" items="${pdList }">
+				<div class="divPd">
+					<a
+						href='<c:url value="/shop/product/productDetail.do?pdNo=${pdVo.productNo}"/>'>
+						<img
+						src="${pageContext.request.contextPath}/pd_images/${pdVo.imageURL}"
+						border="0" alt="상품이미지">
+					</a> <br> ${pdVo.productName}<br>
+					<fmt:formatNumber value="${pdVo.sellPrice}" pattern="#,###" />
+					원
+				</div>
+			</c:forEach>
+			<!-- 반복문 끝 -->
+		</c:if>
+	</div>
+
+
+</body>
+</html>

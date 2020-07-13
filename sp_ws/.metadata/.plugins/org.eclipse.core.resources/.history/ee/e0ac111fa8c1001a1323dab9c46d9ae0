@@ -1,0 +1,5 @@
+package com.will.herb.zipcode.controller;
+
+public class ZipcodeController {
+
+}

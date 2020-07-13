@@ -1,0 +1,27 @@
+20200622
+
+웹브라우저 >요청> 컨트롤러 >명령어처리> 명령어처리 인터페이스, 명령어처리클래스 <모델> <db> 
+웹브라우저	컨트롤러 <처리결과<	
+웹브라우저            컨트롤러가 처리결과를 뷰페이지로보냄   
+웹브라우저 <응답<뷰페이지
+/tips/menuForm.do 
+=> DispatcherServlet 
+=> menuFormController >><<>><< menuExpert 
+=> menuResult.jsp
+
+*.do url이 들어오면 class를 처리해라
+매핑정보를 프로퍼티스에 저장
+
+디스패쳐 
+인코딩을 디스패쳐에서 해놔서 매번 컨트롤러에서 코드입력 하지 않아도 OK임
+리턴값을 받고 포워드 해주는 서블릿이다
+
+처음에 한번 =
+1. web.xml .do의 모든요청을 dispatcherservlet 으로 진입점을 하나로 되게 해줌
+2. controller interface을 처음에 한번 만든다
+3. dispatcherservlet을 처음에 한번 만든다
+
+새로운 작업 =
+1. 각각의 jsp
+2. 각각의 controller (jsp로 보내기 위함)
+3. properties 매핑파일을 추가설정

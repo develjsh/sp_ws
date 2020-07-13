@@ -1,0 +1,58 @@
+package com.will.herb.member.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.will.herb.member.model.MemberDAO;
+import com.will.herb.member.model.MemberVO;
+
+@Controller
+@RequestMapping()
+public class MemberController {
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
+	@Autowired
+	private MemberDAO memberDao;
+	
+	@RequestMapping("/member/agreement.do")
+	public String agreement() {
+		logger.info("agreement 화면 보여주기");
+		
+		return "member/agreement";
+	}
+	
+	@RequestMapping( value = "/member/register.do", method = RequestMethod.GET)
+	public void register() {
+		logger.info("회원가입 페이지 보여주기");
+		
+		//void로 하면 requestMapping에 적혀 있는것을 알아서 가져와 return 값을 입력해준다. 대신, requestMapping에 다른 글이 적혀있으면 안된다
+		//return "member/register";
+	}
+	
+	@RequestMapping(value = "/register.do", method = RequestMethod.POST)
+	public String register_post(@ModelAttribute MemberVO memberVo, Model model) {
+		//1
+		logger.info("회원가입 입력, vo={}", memberVo);
+		
+		//2
+		int cnt = memberDao.insertMember(memberVo);
+		String msg="회원 가입 실패 했습니다", url="/member/register.do";
+		if(cnt>0) {
+			msg="회원 가입 성공 했습니다";
+			url="/index.do";
+		}
+		//3
+		model.addAttribute("msg",msg);
+		model.addAttribute("url",url);
+		
+		//4
+		
+		return "common/message";
+	}
+}

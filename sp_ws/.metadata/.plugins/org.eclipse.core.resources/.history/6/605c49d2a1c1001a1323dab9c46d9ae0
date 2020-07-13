@@ -1,0 +1,6 @@
+package com.will.herb.member.model;
+
+public interface MemberService {
+	public int insertMember(MemberVO vo);
+	public int duplicateId(String userid);
+}

@@ -1,0 +1,5 @@
+package com.will.herb.member.model;
+
+public interface MemberDAO {
+
+}

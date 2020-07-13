@@ -1,0 +1,16 @@
+package com.will.herb.product.model;
+
+public class ProductVO {
+	private int productNo;
+	private int categoryNO;
+	private String productName;
+	private int sellPrice;
+	private String company;
+	private String imageURL;
+	private String explains;
+	private String description;
+	private date regDate;
+	private int mileage;
+	
+	
+}
